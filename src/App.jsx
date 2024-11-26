@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import Header from './components/header';
+import Header from './components/Header';
 import Banner from './components/Banner';
 import MovieList from './components/MovieList';
 
@@ -16,8 +16,8 @@ function App() {
           Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`
         }
       };
-      const url1 = 'https://api.themoviedb.org/3/movie/popular?language=vi-US&page=1';
-      const url2 = 'https://api.themoviedb.org/3/movie/top_rated?language=vi-US&page=1';
+      const url1 = 'https://api.themoviedb.org/3/movie/popular?language=vi-EN&page=1';
+      const url2 = 'https://api.themoviedb.org/3/movie/top_rated?language=vi-EN&page=1';
 
       const [res1, res2] = await Promise.all([
         fetch(url1, options),
@@ -25,7 +25,7 @@ function App() {
       ])
       const data1 = await res1.json();
       const data2 = await res2.json();
-
+      console.log(data2);
       setMovie(data1.results);
       setMovieRate(data2.results);
       // const response = await fetch(url, options);
