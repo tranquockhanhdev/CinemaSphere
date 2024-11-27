@@ -1,4 +1,5 @@
-const Header = () => {
+
+const Header = (props) => {
     return (
         <>
             <div className=" p-4 bg-black flex items-center justify-between">
@@ -12,7 +13,7 @@ const Header = () => {
                 </div>
                 <div className="flex items-center space-x-4">
                     <input type="text" className="p-3 text-black" placeholder="search" />
-                    <button className="rounded-2xl p-3 text-white bg-red-600 ">Search</button>
+                    <button onClick={() => props.handleSearch('hit')} className="rounded-2xl p-3 text-white bg-red-600 ">Search</button>
                 </div>
             </div>
         </>
