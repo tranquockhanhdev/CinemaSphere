@@ -65,7 +65,7 @@ const MovieList = (props) => {
                 <h2 className="uppercase text-3xl font-bold mb-4">{props.title}</h2>
                 <Carousel responsive={responsive}
                     className="flex items-center space-x-4">
-                    {props.data.length > 0 && props.data.map((item) => {
+                    {props.data && props.data.length > 0 && props.data.map((item) => {
                         return (
                             <div
                                 key={item.id}

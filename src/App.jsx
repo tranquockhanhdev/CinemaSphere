@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import Banner from './components/Banner';
 import MovieList from './components/MovieList';
+import MovieSearch from './components/MovieSearch';
 
 function App() {
   const [movie, setMovie] = useState([]);
@@ -61,13 +62,22 @@ function App() {
       <div className='bg-black pb-10'>
         <Header handleSearch={handleSearch} />
         <Banner />
-        <MovieList
-          title="Phim Hot"
-          data={movie}
-        />
-        <MovieList
-          title="Phim Đề Cử"
-          data={movieRate} />
+        {movieSearch.length > 0 ? (
+          <MovieSearch
+            title="Kết quả tìm kiếm"
+            data={movieSearch}
+          />
+        ) : (
+          <>
+            <MovieList
+              title="Phim Hot"
+              data={movie}
+            />
+            <MovieList
+              title="Phim Đề Cử"
+              data={movieRate} />
+          </>
+        )}
       </div>
     </>
   )
